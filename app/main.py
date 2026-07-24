@@ -7,9 +7,6 @@ from .database import engine
 from .routers import post, user, auth, vote
 
 
-#no need for this model since i am now using alembic
-# models.Base.metadata.create_all(bind=engine)
-
 
 app = FastAPI()
 
@@ -28,7 +25,7 @@ app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
 
-#this is not necessary but make i leave am
+
 @app.get("/")
 async def root():
     return {"message": "wow,my first website !!"}
