@@ -3,7 +3,6 @@ from datetime import datetime
 from typing import Optional
 from pydantic.types import conint
 
-#pydantic model or Schema
 
 class PostBase(BaseModel):
     title: str
@@ -28,16 +27,13 @@ class Post(PostBase):
     owner: UserOut
 
     model_config = ConfigDict(from_attributes=True)
-    # class Config:
-    #     orm_mode = True
 
 class PostOut(BaseModel):
     Post: Post
     votes: int
 
     model_config = ConfigDict(from_attributes=True)
-    # class Config:
-    #     orm_mode = True
+
 
 
 
@@ -46,10 +42,6 @@ class UserCreate(BaseModel):
     password: str
 
 
-
-    
-    # class Config:
-    #     orm_mode = True
 
 class UserLogin(BaseModel):
     email: EmailStr
